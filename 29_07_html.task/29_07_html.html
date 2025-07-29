@@ -1,0 +1,248 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width", initial-scale="1,0">
+    <title>TSRTC</title>
+    </head>
+    <body>
+        <!-- <div align="center">
+            <img src="data:image/jpeg;base64,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" alt="TSRTC_LOGO">
+            <h2>TELANGANA STATE ROAD TRANSPORT CORPORATION</h2>                    
+            <h3>BUS PASS APPLICATION</h3>
+        </div> -->
+        <form>
+            <table width="80%" align="center">
+                <tr align="center">
+                    <td>
+                    <img src="tsrtc2.jpg" alt="TSRTC_LOGO" width="250" height="150"><br>
+                    <h2>TELANGANA STATE ROAD TRANSPORT CORPORATION <br>GENERAL BUS PASS APPLICATION</h2>
+                    </td>
+                </tr>
+                </table>
+
+            <table width="50%" align="center">
+            <tr>
+            <td>   
+            <fieldset>
+                <legend>Application Details</legend>
+                <table>
+                    <tr>
+                        <td><label for="fullname">Name:<span class="required" style="color: red;">*</span></label></td>
+                        <td><input type="text" name="fullname" id="fullname"></td>
+                        
+                        <td><label for="Father’s/Guardian’sname">Father’s/Guardian’s Name:<span class="required" style="color: red;">*</span></label></td>
+                        <td><input type="text" name="Father’s/Guardian’sname" id="Father’s/Guardian’sname"></td> 
+                    </tr>
+                    <tr>
+                        <td><label for="dob">DOB:<span class="required" style="color: red;">*</span></label></td>
+                        <td><input type="date" id="dob"></td>
+
+                        <td><label for="gender">Gender:<span class="required" style="color: red;">*</span></label></td>
+                        <td><label for="male">Male</label>
+                            <input type="radio" name="gender" id="male">
+                            <label for="female">Female</label>
+                            <input type="radio" name="gender" id="female">
+                            <label for="other">Other</label>
+                            <input type="radio" name="gender" id="other">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="age">Age as on:<span class="required" style="color: red;">*</span></label></td>
+                        <td><input type="text" name="age" id="age"><span>year's</span></td>
+
+                        <td><label for="aadhar">Aadhar No.:<span class="required" style="color: red;">*</span></label></td>
+                        <td><input type="text" name="aadhar" id="aadhar" maxlength="12" minlength="12"> </td>
+                    </tr>
+                    <tr>
+                        <td><label for="tel">Phone No.:<span class="required" style="color: red;">*</span></label></td>
+                        <td><input type="tel" name="phoneno" id="tel"></td>
+
+                        <td><label for="email">Email Id:<span class="required" style="color: red;">*</span></label></td>
+                        <td><input type="email" name="email" id="email"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="photo">Profile Pic:<span class="required" style="color: red;">*</span></label></td>
+                        <td><input type="file" name="photo" id="photo"></td>
+                    </tr>
+                </table>
+            </fieldset>
+            <fieldset>
+                <legend>Residential Address Details</legend>
+                <table>
+                    <tr>
+                        <td><label for="address">Address:<span class="required" style="color: red;">*</span></label></td>
+                        <td><textarea rows="5" cols="25"></textarea></td>
+
+                        <td><label for="district">District:<span class="required" style="color: red;">*</span></label></td>
+                        <td>
+                            <select name="district" id="district">
+                                <option value="">--Select District--</option>
+                                <option value="Adilabad">Adilabad</option>
+                                <option value="Bhadradri Kothagudem">Bhadradri Kothagudem</option>
+                                <option value="Hanumakonda">Hanumakonda</option>
+                                <option value="Hyderabad">Hyderabad</option>
+                                <option value="Jagtial">Jagtial</option>
+                                <option value="Jangaon">Jangaon</option>
+                                <option value="Jayashankar Bhupalpally">Jayashankar Bhupalpally</option>
+                                <option value="Jogulamba Gadwal">Jogulamba Gadwal</option>
+                                <option value="Kamareddy">Kamareddy</option>
+                                <option value="Karimnagar">Karimnagar</option>
+                                <option value="Khammam">Khammam</option>
+                                <option value="Komaram Bheem Asifabad">Komaram Bheem Asifabad</option>
+                                <option value="Mahabubabad">Mahabubabad</option>
+                                <option value="Mahabubnagar">Mahabubnagar</option>
+                                <option value="Mancherial">Mancherial</option>
+                                <option value="Medak">Medak</option>
+                                <option value="Medchal–Malkajgiri">Medchal–Malkajgiri</option>
+                                <option value="Mulugu">Mulugu</option>
+                                <option value="Nagarkurnool">Nagarkurnool</option>
+                                <option value="Nalgonda">Nalgonda</option>
+                                <option value="Narayanpet">Narayanpet</option>
+                                <option value="Nirmal">Nirmal</option>
+                                <option value="Nizamabad">Nizamabad</option>
+                                <option value="Peddapalli">Peddapalli</option>
+                                <option value="Rajanna Sircilla">Rajanna Sircilla</option>
+                                <option value="Ranga Reddy">Ranga Reddy</option>
+                                <option value="Sangareddy">Sangareddy</option>
+                                <option value="Siddipet">Siddipet</option>
+                                <option value="Suryapet">Suryapet</option>
+                                <option value="Vikarabad">Vikarabad</option>
+                                <option value="Wanaparthy">Wanaparthy</option>
+                                <option value="Warangal">Warangal</option>
+                                <option value="Yadadri Bhuvanagiri">Yadadri Bhuvanagiri</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="mandal">Mandal:<span class="required" style="color: red;">*</span></label></td>
+                        <td>
+                            <select name="mandal" id="mandal">
+                                <option value="">--Select Mandal--</option>
+                                <option value="Adilabad">Adilabad</option>
+                                <option value="Alair">Alair</option>
+                                <option value="Aler">Aler</option>
+                                <option value="Banswada">Banswada</option>
+                                <option value="Bhongir">Bhongir</option>
+                                <option value="Chityal">Chityal</option>
+                                <option value="Devarakonda">Devarakonda</option>
+                                <option value="Dubbak">Dubbak</option>
+                                <option value="Gajwel">Gajwel</option>
+                                <option value="Huzurabad">Huzurabad</option>
+                                <option value="Jagtial">Jagtial</option>
+                                <option value="Kandukur">Kandukur</option>
+                                <option value="Kodangal">Kodangal</option>
+                                <option value="Mahabubabad">Mahabubabad</option>
+                                <option value="Mancherial">Mancherial</option>
+                                <option value="Medchal">Medchal</option>
+                                <option value="Mulugu">Mulugu</option>
+                                <option value="Nirmal">Nirmal</option>
+                                <option value="Sangareddy">Sangareddy</option>
+                                <option value="Vikarabad">Vikarabad</option>
+                            </select>
+                        </td>
+                        <td><label for="village">Village:<span class="required" style="color: red;">*</span></label></td>
+                        <td>
+                            <select name="village" id="village">
+                                <option value="">--Select Village--</option>
+                                <option value="Allapur">Allapur</option>
+                                <option value="Antharam">Antharam</option>
+                                <option value="Bachupally">Bachupally</option>
+                                <option value="Bhupalpally">Bhupalpally</option>
+                                <option value="Cherlapally">Cherlapally</option>
+                                <option value="Choutuppal">Choutuppal</option>
+                                <option value="Devarkadra">Devarkadra</option>
+                                <option value="Edulabad">Edulabad</option>
+                                <option value="Gajularamaram">Gajularamaram</option>
+                                <option value="Ghanpur">Ghanpur</option>
+                                <option value="Ibrahimpatnam">Ibrahimpatnam</option>
+                                <option value="Jammikunta">Jammikunta</option>
+                                <option value="Keesara">Keesara</option>
+                                <option value="Kothapalli">Kothapalli</option>
+                                <option value="Lingampally">Lingampally</option>
+                                <option value="Malkajgiri">Malkajgiri</option>
+                                <option value="Narsingi">Narsingi</option>
+                                <option value="Rampur">Rampur</option>
+                                <option value="Shamirpet">Shamirpet</option>
+                                <option value="Thimmapur">Thimmapur</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="pincode">Pincode:<span class="required" style="color: red;">*</span></label></td>
+                        <td><input type="text" name="pincode" id="pincode"></td>
+                    </tr>
+                </table>
+            </fieldset>
+            <fieldset>
+                <legend>Mode of Payment</legend>
+                <table>                    
+                    <tr>
+                        <td><label for="payment_mode">Payment Mode:<span class="required" style="color: red;">*</span></label></td>
+                        <td>
+                            <select name="payment_mode" id="payment_mode" required>
+                                <option value="">-- Select Payment Mode --</option>
+                                <option value="Online">Online Payment (UPI/Credit/Debit)</option>
+                                <option value="NetBanking">Net Banking</option>
+                                <option value="CreditCard">Credit Card</option>
+                                <option value="DebitCard">Debit Card</option>
+                                <option value="UPI">UPI (Google Pay/PhonePe)</option>
+                                <option value="Wallet">Digital Wallet (Paytm/Amazon Pay)</option>
+                                <option value="TSOnline">TS Online Center</option>
+                                <option value="MeeSeva">MeeSeva Center</option>
+                                <option value="Cash">Cash at Counter</option>
+                            </select>
+                        </td>
+                        <td><label for="delivery_mode">Pass Delivery Mode:<span class="required" style="color: red;">*</span></label></td>
+                        <td>
+                            <select name="delivery_mode" id="delivery_mode" required>
+                                <option value="">-- Select Delivery Mode --</option>
+                                <option value="pickup">Pickup at TSRTC Counter</option>
+                                <option value="home_delivery">Home Delivery (via Post/Courier)</option>
+                                <option value="school_college">Through School/College</option>
+                                <option value="digital_copy">Digital Copy (PDF via Email/SMS)</option>
+                                <option value="meeseva">Collect from MeeSeva Center</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="collection_center">Collection Center:<span class="required" style="color: red;">*</span></label></td>
+                        <td>
+                            <select name="collection_center" id="collection_center" required>
+                                <option value="">-- Select Collection Center --</option>
+                                <option value="Adilabad_TSRTC_Depot">Adilabad TSRTC Depot</option>
+                                <option value="Bhadrachalam_MeeSeva">Bhadrachalam MeeSeva Center</option>
+                                <option value="Hyderabad_MGBS_Counter">Hyderabad MGBS Counter</option>
+                                <option value="Jagtial_TSRTC_Office">Jagtial TSRTC Office</option>
+                                <option value="Karimnagar_TSRTC_Depot">Karimnagar TSRTC Depot</option>
+                                <option value="Khammam_Bus_Station">Khammam Bus Station</option>
+                                <option value="Mahbubnagar_MeeSeva">Mahbubnagar MeeSeva Center</option>
+                                <option value="Medak_TSRTC_Depot">Medak TSRTC Depot</option>
+                                <option value="Nalgonda_Bus_Station">Nalgonda Bus Station</option>
+                                <option value="Nizamabad_TSRTC_Office">Nizamabad TSRTC Office</option>
+                                <option value="Sangareddy_MeeSeva">Sangareddy MeeSeva Center</option>
+                                <option value="Siddipet_TSRTC_Depot">Siddipet TSRTC Depot</option>
+                                <option value="Suryapet_MeeSeva">Suryapet MeeSeva Center</option>
+                                <option value="Vikarabad_TSRTC_Depot">Vikarabad TSRTC Depot</option>
+                                <option value="Warangal_Hanmakonda_Bus_Complex">Warangal Hanmakonda Bus Complex</option>
+                            </select>
+                        </td>
+                        
+                    </tr>
+                    </table>
+            </fieldset>
+            </td>
+            </tr>
+            </table>
+            <br><br>
+            <center><img src="capt.jpg" width="150px" height="50">
+                    <img src="reload.png" width="50px">
+            </center>
+            <br>
+            <center><input type="text"></center>
+            <br>
+            <center><input type="submit"></center>
+        </form>
+        
+    </body>
+</html>
